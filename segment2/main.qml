@@ -85,7 +85,7 @@ Window {
 
     Component.onCompleted: {
         var t0 = new Date();
-        PackageManager.getPackages("package-json-report.json");
+        PackageManager.getPackages("../segment2/package-json-report.json");
 
         var t1 = new Date();
         console.log("Took: " + (t1.valueOf() - t0.valueOf()) + " milliseconds");
