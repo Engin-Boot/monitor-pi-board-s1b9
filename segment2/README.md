@@ -6,9 +6,9 @@ Installing Qt5
 
 * [Qt Online Installer](https://www.qt.io/download-qt-installer?hsCtaTracking=99d9dd4f-5681-48d2-b096-470725510d34%7C074ddad0-fdef-4e53-8aa8-5e8a876d6ab4)
 
-* [Qt Offline Installer](https://download.qt.io/archive/qt/5.14/5.14.2/)
+* [Qt Offline Installer](https://download.qt.io/archive/qt/5.14/5.14.2/) (Recommended).
 
-You can use anyone of the above installer to install Qt and develop GUI applications.
+You can use anyone of the above installers to install Qt and develop GUI applications.
 
 ## Table of Content
 
@@ -24,9 +24,9 @@ V. References
 
 ### I.  Parsing JSON report created by the [Core-Infra Team](https://github.com/Engin-Boot/monitor-pi-board-s1b11)
 
-* Access the JSON report file in Qt using QFile.
+Access the JSON report file in Qt using QFile.
 
-* As the JSON report has 2 Keys, the package name and version so the content of JSON report in 2 variables of type [QStringList](https://doc.qt.io/qt-5/qstringlist.html#:~:text=QStringListIterator-,Detailed%20Description,is%20both%20fast%20and%20safe.).
+As the JSON report has 2 Keys, the package name and version so the content of JSON report in 2 variables of type [QStringList](https://doc.qt.io/qt-5/qstringlist.html#:~:text=QStringListIterator-,Detailed%20Description,is%20both%20fast%20and%20safe.).
 
 ### II. GUI Interface to display the contents from JSON
 
