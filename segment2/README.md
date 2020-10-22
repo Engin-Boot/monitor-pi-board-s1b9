@@ -1,8 +1,6 @@
 # Building Qt GUI Application
 
-## Installation Guide
-
-Installing Qt5
+## Qt5 Installation
 
 * [Qt Online Installer](https://www.qt.io/download-qt-installer?hsCtaTracking=99d9dd4f-5681-48d2-b096-470725510d34%7C074ddad0-fdef-4e53-8aa8-5e8a876d6ab4)
 
@@ -10,7 +8,7 @@ Installing Qt5
 
 You can use anyone of the above installers to install Qt and develop GUI applications.
 
-## Table of Content
+## Contents
 
 I. Parsing JSON report created by the [Core-Infra Team](https://github.com/Engin-Boot/monitor-pi-board-s1b11)
 
