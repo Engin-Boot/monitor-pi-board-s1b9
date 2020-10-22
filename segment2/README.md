@@ -20,5 +20,11 @@ III. Results
 
 IV. Reference
 
+### I.  Parsing JSON report created by the [Core-Infra Team](https://github.com/Engin-Boot/monitor-pi-board-s1b11)
+
+Accessing the JSON report file in Qt.
+
+Then parsing the JSON report, As the JSON report has 2 Keys PackageName, Version so storing the content of JSON report in 2 variables packagenames,versions of type [QStringList](https://doc.qt.io/qt-5/qstringlist.html#:~:text=QStringListIterator-,Detailed%20Description,is%20both%20fast%20and%20safe.)
+
 
 
