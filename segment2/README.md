@@ -30,7 +30,7 @@ As the JSON report has 2 Keys, the package name and version so the content of JS
 
 The interface depends on accessing required elements from the backend C++ code.
 
-The QStringList variables containing package names and versions are exposed using setContextProperty. Then they are used as model parameters in two separate ListViews.
+The QStringList variables containing package names and versions are exposed using Q_PROPERTY. Then they are used as model parameters in two separate ListViews.
 The two ListViews have a common ScrollBar to view the final table.
 
 ### III. Results
