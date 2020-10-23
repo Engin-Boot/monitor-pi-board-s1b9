@@ -9,6 +9,8 @@ Q_DECLARE_METATYPE(QStringList);
 class packageReader : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QStringList packagenames MEMBER packagenames NOTIFY packageNamesUpdated)
+    Q_PROPERTY(QStringList versions MEMBER versions NOTIFY versionsUpdated)
 
 private:
 
@@ -27,6 +29,8 @@ public:
     void resetModel();
 
 signals:
+    void packageNamesUpdated();
+    void versionsUpdated();
 
 };
 

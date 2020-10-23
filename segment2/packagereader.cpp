@@ -22,8 +22,9 @@ QJsonDocument packageReader::createDoc(const QString &path)
 
 void packageReader::parseDoc(const QJsonDocument &doc)
 {
-    QJsonObject obj=doc.object();
-    QJsonArray arr=obj["packages"].toArray();
+    QJsonObject obj = doc.object();
+    QJsonArray arr= obj["packages"].toArray();
+
     packagenames.clear();
     versions.clear();
     packagenames.reserve(arr.size()+1);
@@ -43,10 +44,13 @@ void packageReader::parseDoc(const QJsonDocument &doc)
         versions.append(pckversion);
     }
 
-    if(arr.size()!=0)
-    {
-        resetModel();
-    }
+    emit packageNamesUpdated();
+    emit versionsUpdated();
+
+    //if(arr.size()!=0)
+    //{
+     //   resetModel();
+    //}
 }
 
 
@@ -60,7 +64,7 @@ void packageReader::getPackages(const QString &path)
 bool packageReader::initialize()
 {
     mEngine.rootContext()->setContextProperty("PackageManager",this);
-    resetModel();
+    //resetModel();
 
     mEngine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (mEngine.rootObjects().isEmpty()){

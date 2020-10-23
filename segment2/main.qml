@@ -18,7 +18,7 @@ Window {
             id : mListView
 
             width : parent.width/2
-            model : packagenamelist
+            model : PackageManager.packagenames
             delegate: Rectangle
             {
 
@@ -46,7 +46,7 @@ Window {
 
         ListView{
             id : mListView2
-            model : packageversionlist
+            model : PackageManager.versions
             width : parent.width/2
             //anchors.left: mListView.right
             delegate: Rectangle{

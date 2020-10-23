@@ -36,4 +36,5 @@ HEADERS += \
     packagereader.h
 
 DISTFILES += \
+    package-json-report.json \
     stats.json
