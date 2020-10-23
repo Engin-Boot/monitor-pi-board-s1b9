@@ -22,8 +22,8 @@ QJsonDocument packageReader::createDoc(const QString &path)
 
 void packageReader::parseDoc(const QJsonDocument &doc)
 {
-    QJsonArray arr=doc.array();
-
+    QJsonObject obj=doc.object();
+    QJsonArray arr=obj["packages"].toArray();
     packagenames.clear();
     versions.clear();
     packagenames.reserve(arr.size()+1);

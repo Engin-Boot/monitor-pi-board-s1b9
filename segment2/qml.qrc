@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>package-json-report.json</file>
     </qresource>
 </RCC>
