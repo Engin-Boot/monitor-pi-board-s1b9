@@ -6,10 +6,9 @@
 #include <QDebug>
 #include<QVector>
 #include<QQmlContext>
-packageReader::packageReader(QObject *parent) : QObject(parent)
-{
 
-}
+packageReader::packageReader(QObject *parent) : QObject(parent) {}
+
 QJsonDocument packageReader::createDoc(const QString &path)
 {
     QFile file(path);
@@ -27,11 +26,13 @@ void packageReader::parseDoc(const QJsonDocument &doc)
 
     packagenames.clear();
     versions.clear();
+
     packagenames.reserve(arr.size()+1);
     versions.reserve(arr.size()+1);
 
     packagenames.append("PACKAGE NAME");
     versions.append("VERSION");
+
     for(int i=0;i<arr.size();i++)
     {
         QJsonObject jsonPck=arr[i].toObject();
@@ -47,19 +48,13 @@ void packageReader::parseDoc(const QJsonDocument &doc)
     emit packageNamesUpdated();
     emit versionsUpdated();
 
-    //if(arr.size()!=0)
-    //{
-     //   resetModel();
-    //}
 }
-
 
 void packageReader::getPackages(const QString &path)
 {
     QJsonDocument jsonreport = createDoc(path);
     parseDoc(jsonreport);
 }
-
 
 bool packageReader::initialize()
 {
@@ -73,11 +68,3 @@ bool packageReader::initialize()
         return true;
     }
 }
-
-
-void packageReader::resetModel()
-{
-    mEngine.rootContext()->setContextProperty("packagenamelist",QVariant::fromValue(packagenames));
-    mEngine.rootContext()->setContextProperty("packageversionlist",QVariant::fromValue(versions));
-}
-

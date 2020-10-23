@@ -13,20 +13,17 @@ class packageReader : public QObject
     Q_PROPERTY(QStringList versions MEMBER versions NOTIFY versionsUpdated)
 
 private:
-
     QJsonDocument createDoc(const QString &path);
     void parseDoc(const QJsonDocument &doc);
     QQmlApplicationEngine mEngine;
     QStringList packagenames;
     QStringList versions;
-public:
 
+public:
     explicit packageReader(QObject *parent = nullptr);
     Q_INVOKABLE void getPackages(const QString &path);
 
     bool initialize();
-
-    void resetModel();
 
 signals:
     void packageNamesUpdated();
