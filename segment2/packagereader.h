@@ -1,16 +1,16 @@
 #ifndef PACKAGEREADER_H
 #define PACKAGEREADER_H
 #include "package.h"
+#include<string>
 #include <QObject>
 #include<QVector>
 #include<QQmlApplicationEngine>
 
-Q_DECLARE_METATYPE(QStringList);
 class packageReader : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QStringList packagenames MEMBER packagenames NOTIFY packageNamesUpdated)
-    Q_PROPERTY(QStringList versions MEMBER versions NOTIFY versionsUpdated)
+    Q_PROPERTY(QStringList packagenames MEMBER packagenames NOTIFY packagesUpdated)
+    Q_PROPERTY(QStringList versions MEMBER versions NOTIFY packagesUpdated)
 
 private:
     QJsonDocument createDoc(const QString &path);
@@ -26,9 +26,7 @@ public:
     bool initialize();
 
 signals:
-    void packageNamesUpdated();
-    void versionsUpdated();
-
+    void packagesUpdated();
 };
 
 #endif // PACKAGEREADER_H

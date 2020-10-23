@@ -37,6 +37,7 @@ void packageReader::parseDoc(const QJsonDocument &doc)
     {
         QJsonObject jsonPck=arr[i].toObject();
 
+        QString ind = QString::number(i);
         QString pckname=jsonPck["package_name"].toString();
         QString pckversion=jsonPck["version"].toString();
 
@@ -45,9 +46,7 @@ void packageReader::parseDoc(const QJsonDocument &doc)
         versions.append(pckversion);
     }
 
-    emit packageNamesUpdated();
-    emit versionsUpdated();
-
+    emit packagesUpdated();
 }
 
 void packageReader::getPackages(const QString &path)

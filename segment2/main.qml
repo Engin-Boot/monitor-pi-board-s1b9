@@ -15,28 +15,21 @@ Window {
         spacing: 0
 
         ListView{
-            id : mListView
-
-            width : parent.width/2
+            id : mListViewPackageNames
             model : PackageManager.packagenames
             delegate: Rectangle
             {
-
                 width : parent.width
                 height: 50
                 color: "beige"
                 border.color: "yellowgreen"
 
                 Text {
-                    width : parent.width
-                    height: parent.height
-                    id : textId
+                    id : textIdPackageNames
                     anchors.centerIn: parent
                     text : modelData
                     font.pointSize: 13
                     wrapMode: Text.WordWrap
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
                 }
             }
             Layout.fillHeight: true
@@ -45,35 +38,26 @@ Window {
         }
 
         ListView{
-            id : mListView2
+            id : mListViewVersions
             model : PackageManager.versions
-            width : parent.width/2
-            //anchors.left: mListView.right
-            delegate: Rectangle{
-
+            delegate: Rectangle
+            {
                 width : parent.width
                 height: 50
                 color: "beige"
                 border.color: "yellowgreen"
-                //radius: 5
 
                 Text {
-                    width :parent.width
-                    height: parent.height
-                    id : textId2
+                    id : textIdVersions
                     anchors.centerIn: parent
                     text : modelData
                     font.pointSize: 13
                     wrapMode: Text.WordWrap
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
                 }
             }
-
             Layout.fillHeight: true
             Layout.fillWidth: true
             ScrollBar.vertical:vbar
-
         }
     }
 
@@ -88,7 +72,7 @@ Window {
         PackageManager.getPackages("../segment2/package-json-report.json");
 
         var t1 = new Date();
-        console.log("Took: " + (t1.valueOf() - t0.valueOf()) + " milliseconds");
+        console.log("Took: " + (t1.valueOf() - t0.valueOf()) + " milliseconds to fetch " + (mListViewVersions.count - 1) + " packages");
 
     }
 
