@@ -62,6 +62,7 @@ Window {
     }
 
     ScrollBar {
+        //Scrollbar is used to connect both the ListView and both should scroll simultaneously
         id: vbar
         policy: ScrollBar.AlwaysOn
     }
@@ -69,10 +70,15 @@ Window {
 
     Component.onCompleted: {
         var t0 = new Date();
+
+        //getPackage(path_where_JSON_file_is_present)
         PackageManager.getPackages("../segment2/package-json-report.json");
 
         var t1 = new Date();
-        console.log("Took: " + (t1.valueOf() - t0.valueOf()) + " milliseconds to fetch " + (mListViewVersions.count - 1) + " packages");
+
+        //Display in the console the time required to complete the task
+        console.log("Took: " + (t1.valueOf() - t0.valueOf()) + " milliseconds to fetch " +
+                    (mListViewVersions.count - 1) + " packages");
 
     }
 

@@ -9,6 +9,7 @@
 
 packageReader::packageReader(QObject *parent) : QObject(parent) {}
 
+
 QJsonDocument packageReader::createDoc(const QString &path)
 {
     QFile file(path);
@@ -19,6 +20,7 @@ QJsonDocument packageReader::createDoc(const QString &path)
     return jsonreport;
 }
 
+//Parsing the JSON file content and storing it in QStringList(packagenames and versions)
 void packageReader::parseDoc(const QJsonDocument &doc)
 {
     QJsonObject obj = doc.object();
@@ -27,6 +29,7 @@ void packageReader::parseDoc(const QJsonDocument &doc)
     packagenames.clear();
     versions.clear();
 
+    //Reserving space for alloating elements.
     packagenames.reserve(arr.size()+1);
     versions.reserve(arr.size()+1);
 
@@ -49,6 +52,7 @@ void packageReader::parseDoc(const QJsonDocument &doc)
     emit packagesUpdated();
 }
 
+//
 void packageReader::getPackages(const QString &path)
 {
     QJsonDocument jsonreport = createDoc(path);
@@ -57,6 +61,7 @@ void packageReader::getPackages(const QString &path)
 
 bool packageReader::initialize()
 {
+    // Making packageReader class available to mail.qml
     mEngine.rootContext()->setContextProperty("PackageManager",this);
     //resetModel();
 
