@@ -1,3 +1,13 @@
+/*******************************************************************************************************
+* Qt GUI Application
+* https://github.com/Engin-Boot/monitor-pi-board-s1b9/
+*
+* Copyright (c) 2020 Engin-Boot
+* Released under MIT License
+*
+* Refer project root for license text
+********************************************************************************************************/
+
 #include "packagereader.h"
 #include <QJsonDocument>
 #include <QJsonObject>
