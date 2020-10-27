@@ -15,7 +15,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        package.cpp \
         packagereader.cpp
 
 RESOURCES += qml.qrc
@@ -32,9 +31,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    package.h \
     packagereader.h
 
 DISTFILES += \
     package-json-report.json \
-    stats.json
+

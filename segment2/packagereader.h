@@ -1,6 +1,5 @@
 #ifndef PACKAGEREADER_H
 #define PACKAGEREADER_H
-#include "package.h"
 #include<string>
 #include <QObject>
 #include<QVector>
