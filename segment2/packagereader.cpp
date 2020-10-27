@@ -12,12 +12,14 @@
 
 packageReader::packageReader(QObject *parent) : QObject(parent) {}
 
+//Creating a JsonDocument from the JSON report file
 QJsonDocument packageReader::createDoc(const QString &path)
 {
     QFile file(path);
     file.open(QIODevice::ReadOnly);
     QByteArray val = file.readAll();
     file.close();
+    
     QJsonDocument jsonreport = QJsonDocument::fromJson(val);
     return jsonreport;
 }
@@ -31,7 +33,7 @@ void packageReader::parseDoc(const QJsonDocument &doc)
     packagenames.clear();
     versions.clear();
 
-    //Reserving space for alloating elements.
+    //Reserving space for allocating elements.
     packagenames.reserve(arr.size()+1);
     versions.reserve(arr.size()+1);
 
@@ -46,7 +48,7 @@ void packageReader::parseDoc(const QJsonDocument &doc)
         QString pckname=jsonPck["package_name"].toString();
         QString pckversion=jsonPck["version"].toString();
 
-        //2 separate strings created
+        //2 separate StringLists created
         packagenames.append(pckname);
         versions.append(pckversion);
     }
@@ -54,23 +56,24 @@ void packageReader::parseDoc(const QJsonDocument &doc)
     emit packagesUpdated();
 }
 
-//
+//******************Called in main***********************
+
 void packageReader::getPackages(const QString &path)
 {
     QJsonDocument jsonreport = createDoc(path);
     parseDoc(jsonreport);
 }
 
+//********************************************************
+
+// Making packageReader class available to mail.qml
 bool packageReader::initialize()
 {
-    // Making packageReader class available to mail.qml
     mEngine.rootContext()->setContextProperty("PackageManager",this);
-    //resetModel();
 
     mEngine.load(QUrl(QStringLiteral("qrc:/main.qml")));
-    if (mEngine.rootObjects().isEmpty()){
+    if (mEngine.rootObjects().isEmpty())
         return false;
-    }else{
+    else
         return true;
-    }
 }
