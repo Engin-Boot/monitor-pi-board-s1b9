@@ -9,16 +9,8 @@
 ********************************************************************************************************/
 
 #include "packagereader.h"
-#include <QJsonDocument>
-#include <QJsonObject>
-#include <QJsonArray>
-#include <QFile>
-#include <QDebug>
-#include<QVector>
-#include<QQmlContext>
 
 packageReader::packageReader(QObject *parent) : QObject(parent) {}
-
 
 QJsonDocument packageReader::createDoc(const QString &path)
 {
