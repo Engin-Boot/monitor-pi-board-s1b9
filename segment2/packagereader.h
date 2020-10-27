@@ -14,6 +14,12 @@
 #include <QObject>
 #include <QQmlApplicationEngine>
 
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QFile>
+#include <QQmlContext>
+
 class packageReader : public QObject
 {
     Q_OBJECT
