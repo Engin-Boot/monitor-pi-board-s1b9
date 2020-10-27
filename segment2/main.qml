@@ -16,7 +16,7 @@ Window {
 
         ListView{
             id : mListViewPackageNames
-            model : PackageManager.packagenames
+            model : PackageManager.packagenames //QStringList obtained from backend with package names
             delegate: Rectangle
             {
                 width : parent.width
@@ -39,7 +39,7 @@ Window {
 
         ListView{
             id : mListViewVersions
-            model : PackageManager.versions
+            model : PackageManager.versions //QStringList obtained from backend with versions
             delegate: Rectangle
             {
                 width : parent.width
