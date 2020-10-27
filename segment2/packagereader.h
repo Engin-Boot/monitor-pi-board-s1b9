@@ -10,10 +10,9 @@
 
 #ifndef PACKAGEREADER_H
 #define PACKAGEREADER_H
-#include<string>
+
 #include <QObject>
-#include<QVector>
-#include<QQmlApplicationEngine>
+#include <QQmlApplicationEngine>
 
 class packageReader : public QObject
 {
@@ -22,18 +21,19 @@ class packageReader : public QObject
     Q_PROPERTY(QStringList versions MEMBER versions NOTIFY packagesUpdated)
 
 private:
-    QJsonDocument createDoc(const QString &path);
-    void parseDoc(const QJsonDocument &doc);
-    QQmlApplicationEngine mEngine;
     QStringList packagenames;
     QStringList versions;
+    
+    QQmlApplicationEngine mEngine;
+    
+    QJsonDocument createDoc(const QString &path);
+    void parseDoc(const QJsonDocument &doc);
 
 public:
-    explicit packageReader(QObject *parent = nullptr);
-    Q_INVOKABLE void getPackages(const QString &path);
-
     bool initialize();
-
+    Q_INVOKABLE void getPackages(const QString &path);
+    explicit packageReader(QObject *parent = nullptr);
+    
 signals:
     void packagesUpdated();
 };
